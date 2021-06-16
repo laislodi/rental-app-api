@@ -1,0 +1,5 @@
+
+graphene-django=2.15.0
+Django==3.2.3
+mysqlclient==2.0.3
+graphene==2.1.8
