@@ -15,18 +15,6 @@ down_revision = '9e6f16e54bc1'
 branch_labels = None
 depends_on = None
 
-# id           int auto_increment
-#         primary key,
-#     first_name   varchar(100)  not null,
-#     last_name    varchar(100)  not null,
-#     rg_number    varchar(12)   null,
-#     rg_state     int default 8 null,
-#     cpf          varchar(11)   not null,
-#     apartment_id int           null,
-#     constraint clients_ibfk_1
-#         foreign key (apartment_id) references apartments (id),
-#     constraint clients_ibfk_2
-#         foreign key (rg_state) references states (id)
 
 def upgrade():
     op.create_table(
