@@ -8,7 +8,7 @@ class Apartment(models.Model):
     description = models.CharField(max_length=100)
     price = models.FloatField()
     available = models.BooleanField(default=True)
-    special = models.BooleanField(default=False)
+    highlighted = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'apartment'

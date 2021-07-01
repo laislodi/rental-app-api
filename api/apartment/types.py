@@ -16,4 +16,4 @@ class ApartmentType(DjangoObjectType):
 
     class Meta:
         model = Apartment
-        fields = ("id", "number", "bedrooms", "description", "price", "available", "special")
+        fields = ("id", "number", "bedrooms", "description", "price", "available", "highlighted")
