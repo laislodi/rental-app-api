@@ -8,7 +8,7 @@ class Query:
     apartments_by_bedrooms = graphene.List(ApartmentType)
     apartments_by_bedrooms_at_least = graphene.List(ApartmentType)
     available_apartments = graphene.List(ApartmentType, highlighted=graphene.Boolean())
-    get_apartment = graphene.Field(ApartmentType, number=graphene.String())
+    get_apartment_by_number = graphene.Field(ApartmentType, number=graphene.String())
 
     def resolve_all_apartments(self, info):
         return Apartment.objects.all()
@@ -17,7 +17,7 @@ class Query:
         return Apartment.objects.filter(bedrooms__exact=bedrooms)
 
     def resolve_apartments_by_bedrooms_at_least(self, info, bedrooms):
-        return Apartment.objects.filter(bedrooms__=bedrooms)
+        return Apartment.objects.filter(bedrooms__gte=bedrooms)
 
     def resolve_available_apartments(self, info, highlighted: bool):
         _filter = Q(available=True)
@@ -25,7 +25,7 @@ class Query:
             _filter = _filter & Q(highlighted=True)
         return Apartment.objects.filter(_filter)
 
-    def resolve_get_apartment(self, info, number: str):
+    def resolve_get_apartment_by_number(self, info, number: str):
         return Apartment.objects.get(number__iexact=number)
 
 
