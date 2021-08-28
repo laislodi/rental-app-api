@@ -3,6 +3,7 @@ from api.apartment.schema import Query as ApartmentQuery, Mutation as ApartmentM
 from api.client.schema import Query as ClientQuery, Mutation as ClientMutation
 from api.apartmentImages.schema import Query as ApartmentImagesQuery
 from api.state.types import StateType
+from api.a0_parameters.schema import Query as AboutUsQuery
 
 
 class Query(
@@ -10,6 +11,7 @@ class Query(
     ApartmentQuery,
     ClientQuery,
     ApartmentImagesQuery,
+    AboutUsQuery
 ):
     pass
 

@@ -18,7 +18,7 @@ depends_on = None
 
 def upgrade():
     about_us = op.create_table(
-        'about_us',
+        'parameters',
         sa.Column('id', sa.Integer, primary_key=True),
         sa.Column('html', sa.TEXT(131070))
     )
@@ -28,8 +28,8 @@ def upgrade():
             'html': """<div class="container text-center">
 <p class="lead">Desde 2006, com a missão de impactar nossos clientes com apartamentos muito bem desenhados, iluminados 
 com armários, e com um ótimo preço, oferecemos qualidade de vida mais do que unidades de habitação. </p>
-<p>Estamos presentes em toda no prédio para melhor atendê-los. Com regras de convivência claras e moderadas, sempre 
-procuramos o bem estar dos nossos clientes e oferecer os melhores serviços. </p>
+<p>Estamos sempre presentes no prédio para melhor atendê-lo. Contamos com regras de convivência claras e moderadas, 
+sempre buscando o bem estar dos nossos clientes e oferecer os melhores serviços. </p>
 <p>Procure já os nossos representantes para que possamos oferecer-te o seu próximo apartamento! </p>
 <p>Ligue ou envie uma mensagem para ${telephone} ou contate-nos através do email ${email}, ficaremos felizes em 
 atendê-lo!</p>
@@ -39,4 +39,4 @@ atendê-lo!</p>
 
 
 def downgrade():
-    op.drop_table('about_us')
+    op.drop_table('parameters')
