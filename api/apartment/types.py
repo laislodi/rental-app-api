@@ -9,7 +9,7 @@ class ApartmentType(DjangoObjectType):
     cover_images = graphene.List(ApartmentImagesType)
 
     def resolve_images(self: Apartment, info):
-        return ApartmentImage.objects.filter(apartment=self.id)
+        return ApartmentImage.objects.filter(apartment=self.id, favorite=False)
 
     def resolve_cover_images(self: Apartment, info):
         return ApartmentImage.objects.filter(apartment_id=self.id, favorite=True)
